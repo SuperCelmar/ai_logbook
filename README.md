@@ -1,3 +1,3 @@
-# Claude Code Sandbox
+# AI Logbook
 
-A repository for testing and experimenting with Claude Code.
+A repository for testing and experimenting with Claude Code and other AI tools.
