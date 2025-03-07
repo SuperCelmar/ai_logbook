@@ -1,0 +1,310 @@
+/* Base styles and variables */
+:root {
+    --primary-color: #0a2463;
+    --secondary-color: #247ba0;
+    --accent-color: #05f4b7;
+    --background-color: #05103a;
+    --text-color: #e8f1f2;
+    --card-bg-color: rgba(10, 36, 99, 0.6);
+    --transition-time: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    transition: background var(--transition-time) ease;
+}
+
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(2, 4, 7, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    transition: color var(--transition-time) ease;
+}
+
+.site-title {
+    font-size: 3.5rem;
+    text-align: center;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: title-shimmer 3s infinite;
+}
+
+.site-description {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Layout sections */
+header, main, footer {
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+/* Input Section */
+.input-section {
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#idea-input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+#idea-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+#submit-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border: none;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#submit-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.info-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Leaderboard */
+.leaderboard-section {
+    text-align: center;
+}
+
+.leaderboard-container {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) transparent;
+}
+
+.leaderboard-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.leaderboard-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.leaderboard-container::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.idea-card {
+    background: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    text-align: left;
+}
+
+.idea-card.top-idea {
+    border-left: 4px solid var(--accent-color);
+    background: rgba(5, 244, 183, 0.1);
+    box-shadow: 0 5px 15px rgba(5, 244, 183, 0.2);
+    transform: scale(1.01);
+}
+
+.rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-right: 1rem;
+    min-width: 30px;
+}
+
+.top-idea .rank {
+    color: var(--accent-color);
+}
+
+.idea-content {
+    flex-grow: 1;
+}
+
+.idea-text {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.idea-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.idea-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.vote-btn {
+    background: none;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    color: var(--secondary-color);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+.vote-btn:hover, .vote-btn.voted {
+    background: var(--secondary-color);
+    color: var(--background-color);
+}
+
+.vote-count {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes title-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .idea-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .idea-score {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+        align-items: center;
+    }
+}
